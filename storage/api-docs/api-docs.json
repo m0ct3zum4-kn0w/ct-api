@@ -1,0 +1,28 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API prueba empresa confidencial",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000"
+        }
+    ],
+    "paths": {
+        "/api/v1/crias": {
+            "get": {
+                "summary": "Mostrar Crias",
+                "operationId": "98374091cebe7b45494df993ad0b56bd",
+                "responses": {
+                    "200": {
+                        "description": "Mostrar todas las crias."
+                    },
+                    "default": {
+                        "description": "Algo salio mal."
+                    }
+                }
+            }
+        }
+    }
+}
