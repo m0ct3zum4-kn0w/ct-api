@@ -26,14 +26,21 @@ class SensorController extends Controller
     public function store(Request $request)
     {
 
+        $valid = $request->validate([
+            'id' => 'exists:crias',
+            'cardiaca' => 'numeric',
+            'respiratoria' => 'numeric',
+            'sanguinea' => 'numeric',
+            'temperatura' => 'numeric'
+        ]);
+
         $cria = Crias::where('id', $request->id)->first();
-
-        $cria->cardiaca = $request->cardiaca;
-        $cria->respiratoria = $request->respiratoria;
-        $cria->sanguinea = $request->sanguinea;
-        $cria->temperatura = $request->temperatura;
-
-        $cria->save();
+        $cria->sensores()->create([
+            'cardiaca' => $valid['cardiaca'],
+            'respiratoria' => $valid['respiratoria'],
+            'sanguinea' => $valid['sanguinea'],
+            'temperatura' => $valid['temperatura']
+        ]);
 
         return response()->json([
             'result' => 'exitó al registrar'

@@ -21,13 +21,8 @@ class Crias extends Migration
             $table->Integer('marmoleo');
             $table->Integer('musculo');
 
-            $table->Integer('cardiaca')->nullable();
-            $table->Integer('respiratoria')->nullable();
-            $table->Integer('sanguinea')->nullable();
-            $table->Integer('temperatura')->nullable();
-
             $table->text('description')->nullable();
-            $table->string('estatus', 20)->default('alive')->nullable();
+            $table->string('estatus', 20)->default('saludable')->nullable();
             $table->Integer('proveedor');
             $table->timestamps();
         });

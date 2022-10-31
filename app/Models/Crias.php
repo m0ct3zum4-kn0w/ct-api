@@ -22,4 +22,16 @@ class Crias extends Model
         "description",
         "proveedor"
     ];
+
+    public function cuarentena(){
+        return $this->hasMany(\App\Models\Cuarentena::class,'criaID','id');
+    }
+
+    public function sensores(){
+        return $this->hasMany(\App\Models\Sensores::class,'criaID','id');
+    }
+
+    public function sensor(){
+        return $this->hasOne(\App\Models\Sensores::class,'criaID','id')->latest();
+    }
 }

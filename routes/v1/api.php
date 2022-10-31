@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CriasController;
 use App\Http\Controllers\SensorController;
+use App\Http\Controllers\CuarentenaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,10 @@ Route::prefix('crias')->group(function(){
 
 Route::prefix('sensor')->group(function(){
     Route::post('', [SensorController::class,'store']);
+});
+
+Route::prefix('cuarentena')->group(function() {
+    Route::get('', [CuarentenaController::class, 'index']);
+    Route::post('', [CuarentenaController::class, 'store']);
+    Route::delete('{id}', [CuarentenaController::class, 'destroy']);
 });
